@@ -1,0 +1,20 @@
+datasource hierarchyDb {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_HIERARCHY")
+}
+
+generator hierarchyClient {
+  provider = "prisma-client-js"
+  output   = "./generated/hierarchy"
+}
+
+model Folder {
+  id        String   @id @default(uuid())
+  name      String
+  parentId  String?
+  userId    String
+  createdAt DateTime @default(now())
+
+  children Folder[] @relation("FolderHierarchy")
+  parent   Folder?  @relation("FolderHierarchy", fields: [parentId], references: [id])
+}

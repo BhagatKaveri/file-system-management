@@ -1,0 +1,34 @@
+// services/hierarchy/prisma/schema.prisma
+
+datasource hierarchyDb {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_HIERARCHY")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Folder {
+  id        String   @id @default(uuid())
+  name      String
+  parentId  String?
+  userId    String // User ID from Users service
+  createdAt DateTime @default(now())
+
+  parent    Folder? @relation("FolderHierarchy", fields: [parentId], references: [id])
+  children  Folder[] @relation("FolderHierarchy")
+  documents Document[]
+}
+
+model Document {
+  id        String   @id @default(uuid())
+  title     String
+  content   String?
+  folderId  String
+  userId    String  // User ID from Users service
+  createdAt DateTime @default(now())
+
+  folder    Folder @relation(fields: [folderId], references: [id])
+  // versions will be handled by the Versions microservice, so no relation here
+}
