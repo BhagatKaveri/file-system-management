@@ -21,14 +21,3 @@ model Folder {
   documents Document[]
 }
 
-model Document {
-  id        String   @id @default(uuid())
-  title     String
-  content   String?
-  folderId  String
-  userId    String  // User ID from Users service
-  createdAt DateTime @default(now())
-
-  folder    Folder @relation(fields: [folderId], references: [id])
-  // versions will be handled by the Versions microservice, so no relation here
-}
