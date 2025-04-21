@@ -1,0 +1,91 @@
+openapi: 3.0.0
+info:
+  title: file system
+  version: 1.0.0
+paths:
+  /api/folders:
+    post:
+      summary: Create a new folder
+      responses:
+        '200':
+          description: Success
+  /api/viewstore/d51066f1-2ad6-4316-bf71-edcedaec3f41:
+    get:
+      summary: Get the content of a folder, including subfolders and documents
+      responses:
+        '200':
+          description: Success
+  /api/viewstore/:
+    get:
+      summary: Get initial folders in the project for the authenticated user
+      responses:
+        '200':
+          description: Success
+  /api/folders/4f6aa10f-94d6-41d3-980d-589b2ac318d1:
+    put:
+      summary: Update folder details by id
+      responses:
+        '200':
+          description: Success
+  /api/folders/c75f6d09-d47a-4166-b17d-fe0428fd509d:
+    delete:
+      summary: Delete a folder
+      responses:
+        '200':
+          description: Success
+  /api/documents:
+    post:
+      summary: Create a new document
+      responses:
+        '200':
+          description: Success
+  /api/documents/b7ea1597-d8d1-4139-b2b3-990249e1582d:
+    delete:
+      summary: Delete a document
+      responses:
+        '200':
+          description: Success
+    put:
+      summary: 'Update document details '
+      responses:
+        '200':
+          description: Success
+  /api/documents/cac4195a-f5cc-4e43-a70f-0f74136a68f3/version:
+    post:
+      summary: create version in the document
+      responses:
+        '200':
+          description: Success
+  /api/documents/cac4195a-f5cc-4e43-a70f-0f74136a68f3:
+    get:
+      summary: Get document details
+      responses:
+        '200':
+          description: Success
+  /api/documents/cac4195a-f5cc-4e43-a70f-0f74136a68f3/versions:
+    get:
+      summary: Retrieve all versions of a document
+      responses:
+        '200':
+          description: Success
+  /api/filter?search=project report 1:
+    get:
+      summary: Return documents along with the path of the folder in which the document
+        is stored
+      responses:
+        '200':
+          description: Success
+  /api/total-documents:
+    get:
+      summary: Return the count of documents for the authenticated user
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+- bearerAuth: []

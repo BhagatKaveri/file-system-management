@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "1df7c2c2-d15f-4afa-9821-d6d090359fe1",
+		"name": "file system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20893381"
+	},
+	"item": [
+		{
+			"name": "Folder",
+			"item": [
+				{
+					"name": "Create a new folder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNDI0MzksImV4cCI6MTc0NTIyODgzOX0.eIwkQ26mzCfKqLpKF7O5cjpWIa5gc958raEGmkPqJfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Folder A\",\r\n  \"parentId\": \"d51066f1-2ad6-4316-bf71-edcedaec3f41\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/folders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"folders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the content of a folder, including subfolders and documents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxMzkxOTQsImV4cCI6MTc0NTIyNTU5NH0.wdj-SyX4sh09AKVjAoBrDBLFeK3rTXZW9YwYwvIisuk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/api/viewstore/d51066f1-2ad6-4316-bf71-edcedaec3f41",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"viewstore",
+								"d51066f1-2ad6-4316-bf71-edcedaec3f41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get initial folders in the project for the authenticated user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNDI0MzksImV4cCI6MTc0NTIyODgzOX0.eIwkQ26mzCfKqLpKF7O5cjpWIa5gc958raEGmkPqJfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/api/viewstore/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"viewstore",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update folder details by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNDI0MzksImV4cCI6MTc0NTIyODgzOX0.eIwkQ26mzCfKqLpKF7O5cjpWIa5gc958raEGmkPqJfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Subfolder BA\",\r\n    \"parentFolder\": \"d51066f1-2ad6-4316-bf71-edcedaec3f41\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/folders/4f6aa10f-94d6-41d3-980d-589b2ac318d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"folders",
+								"4f6aa10f-94d6-41d3-980d-589b2ac318d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a folder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNDA0MTcsImV4cCI6MTc0NTIyNjgxN30.I8FUMJhvqurLs3Cm9xSCvUSlALwxjg6_rGjvqggLAqA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/api/folders/c75f6d09-d47a-4166-b17d-fe0428fd509d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"folders",
+								"c75f6d09-d47a-4166-b17d-fe0428fd509d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "Create a new document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNjM3NTYsImV4cCI6MTc0NTI1MDE1Nn0.JjVn3zNQFBuaL6ktN9Bo3ecU24nSSGqiqbqLsoih6Fo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Project Report",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Initial draft",
+									"type": "text"
+								},
+								{
+									"key": "folderId",
+									"value": "08bf1225-b32a-4e4a-a8c6-9063782e080b",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/bhaga/Downloads/Kaveri_Node_developer_Resume.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5003/api/documents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNjM3NTYsImV4cCI6MTc0NTI1MDE1Nn0.JjVn3zNQFBuaL6ktN9Bo3ecU24nSSGqiqbqLsoih6Fo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5003/api/documents/b7ea1597-d8d1-4139-b2b3-990249e1582d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"documents",
+								"b7ea1597-d8d1-4139-b2b3-990249e1582d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create version in the document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNjM3NTYsImV4cCI6MTc0NTI1MDE1Nn0.JjVn3zNQFBuaL6ktN9Bo3ecU24nSSGqiqbqLsoih6Fo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "versionNumber",
+									"value": "1.1",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/bhaga/Downloads/Kaveri_Node_developer_Resume.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5003/api/documents/cac4195a-f5cc-4e43-a70f-0f74136a68f3/version",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"documents",
+								"cac4195a-f5cc-4e43-a70f-0f74136a68f3",
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get document details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNDI0MzksImV4cCI6MTc0NTIyODgzOX0.eIwkQ26mzCfKqLpKF7O5cjpWIa5gc958raEGmkPqJfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5003/api/documents/cac4195a-f5cc-4e43-a70f-0f74136a68f3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"documents",
+								"cac4195a-f5cc-4e43-a70f-0f74136a68f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all versions of a document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNDI0MzksImV4cCI6MTc0NTIyODgzOX0.eIwkQ26mzCfKqLpKF7O5cjpWIa5gc958raEGmkPqJfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5003/api/documents/cac4195a-f5cc-4e43-a70f-0f74136a68f3/versions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"documents",
+								"cac4195a-f5cc-4e43-a70f-0f74136a68f3",
+								"versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update document details ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNjM3NTYsImV4cCI6MTc0NTI1MDE1Nn0.JjVn3zNQFBuaL6ktN9Bo3ecU24nSSGqiqbqLsoih6Fo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Report\",\r\n  \"content\": \"Final version with summary\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5003/api/documents/b7ea1597-d8d1-4139-b2b3-990249e1582d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"documents",
+								"b7ea1597-d8d1-4139-b2b3-990249e1582d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "filter",
+			"item": [
+				{
+					"name": "Return documents along with the path of the folder in which the document is stored",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdiZDhjMy02YjJlLTQxZTktYjY4Ny0yYTMwMTY5ZWQzYjMiLCJpYXQiOjE3NDUxNjM3NTYsImV4cCI6MTc0NTI1MDE1Nn0.JjVn3zNQFBuaL6ktN9Bo3ecU24nSSGqiqbqLsoih6Fo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5003/api/filter?search=project report 1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "project report 1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "total-documents",
+			"item": [
+				{
+					"name": "Return the count of documents for the authenticated user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjYTEzZjc0LWJiZmQtNDYwYi05YmMzLWRkNjQyYmJkNWNjNSIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc0NDE5NTczNH0.VDg_zI_eReycxDFvCCUNbLGTSHSz-gAmxoG_CaYtdVg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5003/api/total-documents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"total-documents"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"kaveri@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"kaveri@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
