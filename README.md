@@ -155,8 +155,8 @@ npm run dev
 
 ## 📄 Swagger & Postman
 
-- Swagger: [`swagger_file_system.yaml`](./swagger_file_system.yaml)
-- Postman: [`file system.postman_collection.json`](./file%20system.postman_collection.json)
+- Swagger: [`swagger_file_system.yaml`](../swagger_file_system.yaml)
+- Postman: [`file system.postman_collection.json`](../file%20system.postman_collection.json)
 
 ---
 
